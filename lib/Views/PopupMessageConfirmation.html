@@ -7,9 +7,9 @@
             <div class="popup-message-label" data-bind="markdown: message"></div>
             <div class="popup-message-actions">
                 <!-- ko if: enableDeny -->
-                    <div class="popup-message-action popup-message-actions-deny" data-bind="click: denyAction, text: denyText"></div>
+                    <button class="popup-message-action popup-message-actions-deny" data-bind="click: denyAction, text: denyText"></button>
                 <!-- /ko -->
-                <div class="popup-message-action popup-message-actions-confirm" data-bind="click: confirmActionAndClose, text: confirmText"></div>
+                <button class="popup-message-action popup-message-actions-confirm" data-bind="click: confirmActionAndClose, text: confirmText"></button>
             </div>
         </div>
     </div>
