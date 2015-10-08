@@ -12,7 +12,7 @@ TIP: You can also free orbit by holding the CTRL key and dragging the map." data
     <!-- ko foreach: controls -->
     <div data-bind="click: activate, attr: { title: $data.name }, css: $root.isLastControl($data) ? 'navigation-control-last' : 'navigation-control' ">
         <!-- ko if: $data.hasText -->
-        <div data-bind="text: $data.text, css: $data.isActive ?  'navigation-control-icon-active ' + $data.cssClass : $data.cssClass"></div>
+        <button data-bind="text: $data.text, css: $data.isActive ?  'navigation-control-icon-active ' + $data.cssClass : $data.cssClass"></button>
         <!-- /ko -->
         <!-- ko ifnot: $data.hasText -->
         <div data-bind="cesiumSvgPath: { path: $data.svgIcon, width: $data.svgWidth, height: $data.svgHeight }, css: $data.isActive ?  'navigation-control-icon-active ' + $data.cssClass : $data.cssClass"></div>
