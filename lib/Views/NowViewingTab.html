@@ -30,11 +30,11 @@
 
 <div class="now-viewing">
     <div class="now-viewing-toolbar">
-        <span class="now-viewing-clear-all clickable" data-bind="click: nowViewing.removeAll.bind(nowViewing)">Remove All</span>
+        <button class="now-viewing-clear-all clickable" data-bind="click: nowViewing.removeAll.bind(nowViewing)">Remove All</button>
     </div>
 
-    <div class="now-viewing-list" data-bind="foreach: nowViewing.items">
-        <div class="now-viewing-item" data-bind="attr: { nowViewingIndex: $index }, event : { dragenter: $root.dragEnter.bind($root), dragover: $root.dragEnter.bind($root) }">
+    <ul class="now-viewing-list" data-bind="foreach: nowViewing.items">
+        <li class="now-viewing-item" data-bind="attr: { nowViewingIndex: $index }, event : { dragenter: $root.dragEnter.bind($root), dragover: $root.dragEnter.bind($root) }">
             <div class="now-viewing-item-top-row" data-bind="attr: { draggable: supportsReordering, nowViewingIndex: $index }, event : { dragstart: $root.dragStart.bind($root), dragend: $root.dragEnd.bind($root), selectstart: $root.selectStart.bind($root) }">
                 <div class="now-viewing-item-drag-handle-holder">
                     <div class="now-viewing-item-drag-handle clickable" data-bind="visible: supportsReordering, cesiumSvgPath: { path: $root.svgReorder, width: 12, height: 10 }, css: { 'now-viewing-shown-item': isShown }" title="Drag to reorder data sources."></div>
@@ -109,8 +109,8 @@
                 </div>
                 <!-- /ko -->
             </div>
-        </div>
-    </div>
+        </li>
+    </ul>
 
     <div class="now-viewing-list" data-bind="visible: nowViewing.items.length === 0">
         <div class="now-viewing-no-items" data-bind="text: noDataText"></div>
