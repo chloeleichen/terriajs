@@ -8,7 +8,7 @@
 					<path d="M30,3.1C29,2.1 27.3,2.4 26.5,3.5L16,16 12.5,11.6c-1,-1 -2.4,-1.2 -3.5,-0.4 -1,1 -1,2.4 -0.4,3.5l5.5,6.9c0.5,0.6 1.2,1 2,1 0.8,0 1.5,-0.3 2,-1L30,6.5c0.6,-1 1,-2 0,-3.4z"></path>
 				  </svg>
                 </button>
-                <div class="data-catalog-item-label data-catalog-enabled-item clickable" data-bind="visible: isEnabled, text: name, click: zoomToAndUseClock" title="Change the map view to show the full extent of this data item."></div>
+                <button class="data-catalog-item-label data-catalog-enabled-item clickable" data-bind="visible: isEnabled, text: name, click: zoomToAndUseClock" title="Change the map view to show the full extent of this data item."></button>
                 <div class="data-catalog-item-label" data-bind="visible: !isEnabled, text: name"></div>
                 <!-- ko if: showsInfo -->
                 <div class="data-catalog-item-info">
@@ -53,12 +53,12 @@
     </form>
     <div class="search-tab-results-area" tabindex="-1" data-bind="visible: searchText, foreach: searchProviders">
         <div class="search-tab-provider">
-            <button class="search-tab-provider-header" data-bind="click: toggleOpen">
-                <div class="search-tab-provider-label" data-bind="text: name"></div>
+            <div class="search-tab-provider-header" data-bind="click: toggleOpen">
+                <button class="search-tab-provider-label" data-bind="text: name"></button>
                 <div class="search-tab-provider-icon-holder">
                     <div class="search-tab-provider-icon" data-bind="cesiumSvgPath: { path: isOpen ? $root.svgArrowDown : $root.svgArrowRight, width: 32, height: 32 }"></div>
                 </div>
-            </button>
+            </div>
             <div class="search-tab-provider-message" data-bind="visible: isOpen && searchMessage, text: searchMessage"></div>
             <ul class="search-tab-provider-results" data-bind="visible: isOpen, foreach: searchResults">
                 <!-- ko if: typeof catalogItem === 'undefined' -->
