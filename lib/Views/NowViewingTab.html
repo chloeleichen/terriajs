@@ -29,8 +29,9 @@
 </script>
 
 <div class="now-viewing">
+<input type="input" value="" class="sr-only" data-bind ="hasFocus: panelHasFocus, attr: {  tabindex: isActive ? 0 : -1 }"/>
     <div class="now-viewing-toolbar">
-        <button class="now-viewing-clear-all clickable" data-bind="click: nowViewing.removeAll.bind(nowViewing)">Remove All</button>
+        <button class="now-viewing-clear-all clickable" data-bind="click: nowViewing.removeAll.bind(nowViewing), attr: {tabindex: isActive ? 0 : -1 }">Remove All</button>
     </div>
 
     <ul class="now-viewing-list" data-bind="foreach: nowViewing.items">
@@ -42,7 +43,7 @@
                 <div class="now-viewing-item-icon-holder">
                     <div class="now-viewing-item-checkbox clickable" data-bind="click: toggleShown, cesiumSvgPath: { path: isShown ? $root.svgVisible : $root.svgInvisible, width: 32, height: 32 }, css: { 'now-viewing-shown-item': isShown }"></div>
                 </div>
-                <div class="now-viewing-item-label clickable" data-bind="text: name, click: toggleLegendVisible, css { 'now-viewing-shown-item': isShown }"></div>
+                <button class="now-viewing-item-label clickable" data-bind="text: name, click: toggleLegendVisible, css { 'now-viewing-shown-item': isShown }, attr: {tabindex: $parent.isActive ? 0 : -1 }"></button>
 
                 <div class="now-viewing-item-arrow-holder">
                     <div class="now-viewing-arrow" data-bind="click: toggleLegendVisible, cesiumSvgPath: { path: isLegendVisible ? $root.svgArrowDown : $root.svgArrowRight, width: 32, height: 32 }"></div>
@@ -62,7 +63,7 @@
 
                 <div class="now-viewing-item-opacity" data-bind="if: supportsOpacity">
                     OPACITY: <span data-bind="text: Math.round(opacity * 100) + '%'"></span>
-                    <input class="now-viewing-opacity-slider" type="range" min="0" max="1" step="0.01" data-bind="value: opacity, valueUpdate: 'input'" />
+                    <input tabindex ="-1" class="now-viewing-opacity-slider" type="range" min="0" max="1" step="0.01" data-bind="value: opacity, valueUpdate: 'input'" />
                 </div>
 
                 <!-- ko if: type === 'abs-itt'-->
@@ -74,13 +75,13 @@
 
                 <!-- ko foreach: legendUrls || [] -->
                     <!-- ko if: $root.urlIsImage($data) -->
-                    <a data-bind="attr: { href: $data }" target="_blank">
+                    <a tabindex ="-1" data-bind="attr: { href: $data }" target="_blank">
                         <img class="now-viewing-legend-image" data-bind="attr: { src: $data }" />
                     </a>
                     <!-- /ko -->
 
                     <!-- ko if: !$root.urlIsImage($data) -->
-                    <a class="now-viewing-legend-text" data-bind="attr: { href: $data }" target="_blank">Open legend in a separate tab</a>
+                    <a tabindex ="-1" class="now-viewing-legend-text" data-bind="attr: { href: $data }" target="_blank">Open legend in a separate tab</a>
                     <!-- /ko -->
                 <!-- /ko -->
 
